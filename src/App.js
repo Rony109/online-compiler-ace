@@ -85,7 +85,7 @@ function CodeArea() {
 		    var data = {"code":parsed_code,"language":lang,"input":input};
 		    var config = {
 		      method: 'post',
-		      url: 'https://my-online-compiler.netlify.app/.netlify/functions/compile',
+		      url: 'https://my-online-code-compiler.netlify.app/.netlify/functions/compile',
 		      // url: 'https://codexweb.netlify.app/.netlify/functions/enforceCode',
 		      headers: { 
 		        'Content-Type': 'text/plain'
