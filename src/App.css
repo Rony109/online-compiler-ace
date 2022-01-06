@@ -184,5 +184,9 @@ body{
   width: 300px;
   color: white;
   background-color: black;
+  position: absolute;
   z-index: 1;
+}
+.hint:hover .hint2{
+  display: block;
 }
