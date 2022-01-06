@@ -41,6 +41,7 @@ function CodeArea() {
     const [code, setCodeValue] = useState()
 	,[selectedValue, setSelectedValue] = useState()
 	,[editorLang,setEditorLang] = useState()
+	,[output,setOutput] = useState()
 	
 
 	function themeChange(event){
@@ -98,7 +99,7 @@ function CodeArea() {
 		    .then(function (response) {
 		      res_data = response.data;
 		      //alert(JSON.stringify(res_data));
-		      output = res_data['output']; 
+		      setOutput(res_data['output']); 
 		      //code = code;
 			  console.log(res_data);
 		      //load_animation('auto');
@@ -107,7 +108,7 @@ function CodeArea() {
 		    })
 		    .catch(function (error) {
 		      res_data = JSON.stringify(error);
-		      output = res_data;
+		      setOutput(res_data);
 		      //code = code;
 			  console.log(output);
 		      //load_animation('auto');
