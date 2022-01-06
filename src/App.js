@@ -99,7 +99,7 @@ function CodeArea() {
 		      res_data = response.data;
 		      //alert(JSON.stringify(res_data));
 		      output = res_data['output']; 
-		      code = code;
+		      //code = code;
 			  console.log(res_data);
 		      //load_animation('auto');
 		      //code_area.style.cursor = "default";
@@ -108,7 +108,7 @@ function CodeArea() {
 		    .catch(function (error) {
 		      res_data = JSON.stringify(error);
 		      output = res_data;
-		      code = code;
+		      //code = code;
 			  console.log(output);
 		      //load_animation('auto');
 		      //code_area.style.cursor = "default";
