@@ -129,7 +129,14 @@ function theme_change(){
 }
 theme.onchange = theme_change;
 
+let hint = document.querySelector('.hint');
+let hint2 = document.querySelector('.hint2');
 
+hint.onmouseover = () => {
+  console.log('onmouse over')
+  hint2.style.display = 'block';
+  hint2.style.zIndex = '1';
+}
 // // Sending our code to our netlify function
 // let run_code_form = document.getElementById("run_code");
 // let output = document.getElementById("output");
