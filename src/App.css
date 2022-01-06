@@ -181,4 +181,8 @@ body{
 
 .hint2{
   display: none;
+  width: 300px;
+  color: white;
+  background-color: black;
+  z-index: 1;
 }
