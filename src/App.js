@@ -49,7 +49,7 @@ function CodeArea() {
 
 	function run(e){
 		e.preventDefault();
-		alert(data);
+		//alert(data);
 	}
 
 	function onChange(newValue){
@@ -95,7 +95,7 @@ function CodeArea() {
 	function run_code(event){
 		  event.preventDefault();
 		  let parsed_code = code.trim().replaceAll(`"`,`\\"`);
-		  alert(parsed_code)
+		  //alert(parsed_code)
 		  let res_data = "set the dummy ouput";
 		  
 		  load_animation('wait')
