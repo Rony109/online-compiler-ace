@@ -52,15 +52,20 @@ function CodeArea() {
 		//alert(data);
 	}
 
-	function onChange(newValue){
-		data = newValue;
-	}
+	
     const [code, setCodeValue] = useState()
 	,[selectedValue, setSelectedValue] = useState()
 	,[editorLang,setEditorLang] = useState()
 	,[output_,setOutput] = useState()
 	
+	function onChange(newValue){
+		data = newValue;
+		setCodeValue(newValue);
+		
+	}
+
 	function onLoad(event){
+		event.preventDefault()
 		setCodeValue(`# Python starter code \nprint('hello world')`)
 		setEditorLang('python')
 		lang = 'py'
