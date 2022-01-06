@@ -63,6 +63,7 @@ function CodeArea() {
 	function onLoad(event){
 		setCodeValue(`# Python starter code \nprint('hello world')`)
 		setEditorLang('python')
+		lang = 'py'
 	}
 
 	function themeChange(event){
