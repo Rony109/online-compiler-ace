@@ -180,13 +180,18 @@ body{
 }
 
 .hint2{
-  display: none;
-  width: 300px;
-  color: white;
-  background-color: black;
+  display: inline-block;
+  visibility: hidden;
+  width: 500px;
+  padding: 0 1rem;
+  color: black;
+  background-color: white;
   position: absolute;
+  border-radius: 0.5rem;
+  top:2%;
+  left:42%;
   z-index: 1;
 }
 .hint:hover .hint2{
-  display: block;
+  visibility: visible;
 }

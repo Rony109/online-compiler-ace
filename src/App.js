@@ -173,7 +173,7 @@ function CodeArea() {
 				  <a  href="https://github.com/Rony109" target="_blank"><i className="fa fa-github" aria-hidden="true"></i></a>
 				  <a  href="https://www.linkedin.com/in/rohan-nirmal-44185519b/" target="_blank"><i className="fa fa-linkedin" aria-hidden="true"></i></a>
 			      <a  href="mailto:rohannirmal999@gmail.com" target="_blank"><i className="fa fa-envelope" aria-hidden="true"></i></a>
-				  <a href="#" className='hint'><i className="fa fa-info" aria-hidden="true"><div className="hint2">A simple react project which I made as a part of my learning. Sit back and enjoy.</div></i></a>
+				  <a href="#" className='hint'><i className="fa fa-info" aria-hidden="true"><span className="hint2">A simple react project which I made as a part of my learning. Sit back and enjoy. Make sure to check my portfolio.</span></i></a>
 
 			</div>
 
