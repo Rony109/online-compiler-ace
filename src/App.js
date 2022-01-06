@@ -18,6 +18,18 @@ let output = `your output will be shown here`
 let lang;
 let input;
 // global funs
+function load_animation(animation){
+  var all = document.getElementsByTagName("*");
+    for (var i=0, max=all.length; i < max; i++) {
+         all[i].style.cursor = animation;
+    }
+}
+
+function load_loader(animation){
+	let loader = document.getElementById('loader')
+	loader.style.visibility = animation;
+  }
+
 function CodeArea() {
 	let langArray = {
         cpp: "c_cpp",
@@ -28,6 +40,11 @@ function CodeArea() {
         py: "python",
         kt: "kotlin",
         swift: "swift"
+	}
+
+	function update_output(newvalue){
+		let op = document.getElementById('output');
+		op.value = newvalue;
 	}
 
 	function run(e){
@@ -41,30 +58,30 @@ function CodeArea() {
     const [code, setCodeValue] = useState()
 	,[selectedValue, setSelectedValue] = useState()
 	,[editorLang,setEditorLang] = useState()
-	,[output,setOutput] = useState()
+	,[output_,setOutput] = useState()
 	
 
 	function themeChange(event){
-		console.log('theme :'+event.target.value);
+		//console.log('theme :'+event.target.value);
 	}
 
 	function handleChange(event){
-		console.log('here '+event.target.value)
+		//console.log('here '+event.target.value)
 		let value = event.target.value;
 		if(value === "py"){
-				console.log(value);
+				//console.log(value);
 				data = `# Python starter code\nprint('Hello World')`;
 			}
 		else if(value === "java"){
-			console.log(value);
+			//console.log(value);
 				data = `// Java starter code\npublic class program{\n\tpublic static void main(String args[]){\n\t\tSystem.out.println("Hello World");\n\t}\n}`;
 		}
 		else if(value === "cpp"){
-			console.log(value);
+			//console.log(value);
 				data = `//C++ starter code\n#include <iostream>\nint main() {\n\tstd::cout << "Hello World!";\n\treturn 0;\n}`;
 		}
 		else if(value === "c"){
-			console.log(value);
+			//console.log(value);
 				data = `//C starter code\n#include <stdio.h>\nint main()\n{\n\t// printf() displays the string inside quotation\n\tprintf("Hello, World!");\n\treturn 0;\n}`;
 		}
 		else{
@@ -81,8 +98,8 @@ function CodeArea() {
 		  alert(parsed_code)
 		  let res_data = "set the dummy ouput";
 		  
-		  //load_animation('wait')
-		  //loader.style.visibility = "visible";
+		  load_animation('wait')
+		  load_loader("visible");
 		  var axios = require('axios');
 		    var data = {"code":parsed_code,"language":lang,"input":input};
 		    var config = {
@@ -100,20 +117,22 @@ function CodeArea() {
 		      res_data = response.data;
 		      //alert(JSON.stringify(res_data));
 		      setOutput(res_data['output']); 
-		      //code = code;
-			  console.log(res_data);
-		      //load_animation('auto');
+			  output = res_data['output'];
+			  update_output(output);
+			  //code = code;
+			  load_animation('auto');
 		      //code_area.style.cursor = "default";
-		      //loader.style.visibility = "hidden";
+		      load_loader("hidden");
 		    })
 		    .catch(function (error) {
 		      res_data = JSON.stringify(error);
 		      setOutput(res_data);
+			  output = res_data;
+			  update_output(output);
 		      //code = code;
-			  console.log(output);
-		      //load_animation('auto');
+			  load_animation('auto');
 		      //code_area.style.cursor = "default";
-		      //loader.style.visibility = "hidden";
+		      load_loader("hidden");
 		    });
 	}
 
@@ -188,7 +207,7 @@ function CodeArea() {
 function Output() {
 	function inputChange(event){
 		input = event.target.value;
-		console.log('input : '+input)
+		//console.log('input : '+input)
 	}
 	return (
 	  <>
@@ -197,7 +216,7 @@ function Output() {
 			<textarea className = "std-in" id = "input" placeholder="Input goes here..." cols="30" onChange={inputChange} rows="10"></textarea>
 			<div className="loader" id = "loader"></div>
 			<p className ="tagline">Press Run to Compile your Code.</p>
-			<textarea  className ="output"  id = "output" placeholder = {output}></textarea>
+			<textarea  className ="output"  id = "output" placeholder = {output} value={output}></textarea>
 		</div>
 	  </>
 	);
