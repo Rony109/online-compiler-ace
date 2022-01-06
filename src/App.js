@@ -60,6 +60,10 @@ function CodeArea() {
 	,[editorLang,setEditorLang] = useState()
 	,[output_,setOutput] = useState()
 	
+	function onLoad(event){
+		setCodeValue(`# Python starter code \nprint('hello world')`)
+		setEditorLang('py')
+	}
 
 	function themeChange(event){
 		//console.log('theme :'+event.target.value);
@@ -141,8 +145,8 @@ function CodeArea() {
 	  	<div className="code">
 			<form id="run_code" onSubmit={run_code}>
 			<div className = "title-bar" id="title-bar">
-				<select name="lang" id="lang"  onChange={handleChange}>
-					<option value="py">Python</option>
+				<select name="lang" id="lang"  defaultValue="py" onChange={handleChange}>
+					<option value="py" selected>Python</option>
 					<option value="java">Java</option>
 					<option value="cpp">C++</option>
 					<option value="c">C</option>
@@ -174,12 +178,13 @@ function CodeArea() {
 				mode={editorLang}
 				theme="monokai"
 				name="blah"
-				//onLoad={this.onLoad}
+				onLoad={onLoad}
 				onChange={onChange}
 				// onSelectionChange={this.onSelectionChange}
 				// onCursorChange={this.onCursorChange}
 				// onValidate={this.onValidate}
 				value={code}
+				defaultValue="print('hello world')"
 				fontSize={14}
 				showPrintMargin={true}
 				showGutter={true}
