@@ -65,6 +65,7 @@ function CodeArea() {
 		setEditorLang('python')
 		lang = 'py'
 	}
+	document.getElementById('body').onload = onLoad;
 
 	function themeChange(event){
 		//console.log('theme :'+event.target.value);
@@ -179,7 +180,7 @@ function CodeArea() {
 				mode={editorLang}
 				theme="monokai"
 				name="blah"
-				onLoad={onLoad}
+				//onLoad={onLoad}
 				onChange={onChange}
 				// onSelectionChange={this.onSelectionChange}
 				// onCursorChange={this.onCursorChange}
