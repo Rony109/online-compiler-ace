@@ -13,6 +13,7 @@ import "ace-builds/src-noconflict/ext-language_tools"
 
 // global vars
 let data;
+let code = 'default code'
 let output = `your output will be shown here`
 let lang;
 let input;
@@ -99,6 +100,7 @@ function CodeArea() {
 		      //alert(JSON.stringify(res_data));
 		      output = res_data['output']; 
 		      code = code;
+			  console.log(res_data);
 		      //load_animation('auto');
 		      //code_area.style.cursor = "default";
 		      //loader.style.visibility = "hidden";
@@ -107,6 +109,7 @@ function CodeArea() {
 		      res_data = JSON.stringify(error);
 		      output = res_data;
 		      code = code;
+			  console.log(output);
 		      //load_animation('auto');
 		      //code_area.style.cursor = "default";
 		      //loader.style.visibility = "hidden";
